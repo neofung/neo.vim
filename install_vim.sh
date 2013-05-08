@@ -16,7 +16,7 @@ make distclean
             --enable-perlinterp \
             --enable-gui=gnome2 \
             --enable-cscope \
-            --prefix=/usr \
+            --prefix=/usr/local/vim \
             --with-python-config-dir=/usr/lib/python2.7/config/
 make VIMRUNTIMEDIR=/usr/share/vim/vim73
 sudo make install
