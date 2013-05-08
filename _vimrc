@@ -3,7 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:is_unix=1
 if has("win32") || has("win64")
-	let	g:is_unix=0
+    let	g:is_unix=0
 endif
 
 "Set shell to be bash
@@ -111,23 +111,23 @@ let g:html_indent_style1 = "inc"
 "-----------------
 " Rainbow parentheses for Lisp and variants
 let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
+            \ ['brown',       'RoyalBlue3'],
+            \ ['Darkblue',    'SeaGreen3'],
+            \ ['darkgray',    'DarkOrchid3'],
+            \ ['darkgreen',   'firebrick3'],
+            \ ['darkcyan',    'RoyalBlue3'],
+            \ ['darkred',     'SeaGreen3'],
+            \ ['darkmagenta', 'DarkOrchid3'],
+            \ ['brown',       'firebrick3'],
+            \ ['gray',        'RoyalBlue3'],
+            \ ['black',       'SeaGreen3'],
+            \ ['darkmagenta', 'DarkOrchid3'],
+            \ ['Darkblue',    'firebrick3'],
+            \ ['darkgreen',   'RoyalBlue3'],
+            \ ['darkcyan',    'SeaGreen3'],
+            \ ['darkred',     'DarkOrchid3'],
+            \ ['red',         'firebrick3'],
+            \ ]
 let g:rbpt_max = 16
 autocmd Syntax lisp,scheme,clojure,racket RainbowParenthesesToggle
 
@@ -151,27 +151,27 @@ let g:tagbar_sort = 0
 let g:tagbar_compact = 1
 " tag for coffee
 if executable('coffeetags')
-  let g:tagbar_type_coffee = {
-        \ 'ctagsbin' : 'coffeetags',
-        \ 'ctagsargs' : '',
-        \ 'kinds' : [
-        \ 'f:functions',
-        \ 'o:object',
-        \ ],
-        \ 'sro' : ".",
-        \ 'kind2scope' : {
-        \ 'f' : 'object',
-        \ 'o' : 'object',
-        \ }
-        \ }
+    let g:tagbar_type_coffee = {
+                \ 'ctagsbin' : 'coffeetags',
+                \ 'ctagsargs' : '',
+                \ 'kinds' : [
+                \ 'f:functions',
+                \ 'o:object',
+                \ ],
+                \ 'sro' : ".",
+                \ 'kind2scope' : {
+                \ 'f' : 'object',
+                \ 'o' : 'object',
+                \ }
+                \ }
 
-  let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'sort' : 0,
-    \ 'kinds' : [
-        \ 'h:sections'
-    \ ]
-    \ }
+    let g:tagbar_type_markdown = {
+                \ 'ctagstype' : 'markdown',
+                \ 'sort' : 0,
+                \ 'kinds' : [
+                \ 'h:sections'
+                \ ]
+                \ }
 endif
 
 " Nerd Tree
@@ -230,11 +230,11 @@ nnoremap <c-l> <c-w>l
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
-      \ if ! exists("g:leave_my_cursor_position_alone") |
-      \     if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \         exe "normal g'\"" |
-      \     endif |
-      \ endif
+            \ if ! exists("g:leave_my_cursor_position_alone") |
+            \     if line("'\"") > 0 && line ("'\"") <= line("$") |
+            \         exe "normal g'\"" |
+            \     endif |
+            \ endif
 
 " w!! to sudo & write a file
 cmap w!! w !sudo tee >/dev/null %
@@ -316,14 +316,14 @@ nmap <leader>w :w!<cr>
 " => ctags自动更新 2011-9-22
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function UpdateTags()
-  let _f_ = expand("%:p")
-  let _cmd_ = '"ctags -R --c++-kinds=+p --fields=+iaS --extra=+q " '
-  let _resp = system(_cmd_)
-  unlet _cmd_
-  unlet _f_
-  unlet _resp
-  set tags+=tags
-  set autochdir
+    let _f_ = expand("%:p")
+    let _cmd_ = '"ctags -R --c++-kinds=+p --fields=+iaS --extra=+q " '
+    let _resp = system(_cmd_)
+    unlet _cmd_
+    unlet _f_
+    unlet _resp
+    set tags+=tags
+    set autochdir
 endfunction
 au BufWritePost *.cpp,*.h,*.c,*.rl,*.def,*.cc call system("ctags -R --c++-kinds=+p --fields=+iaS --extra=+q " . expand("%:p"))
 
@@ -338,8 +338,8 @@ function ReadCppTags()
     else
         call system("ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f " . g:vim_home . "/tags/cpp_src.tags " . g:vim_home . "/tags/cpp_src")
     endif
-    
-	set autochdir 
+
+    set autochdir 
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -352,16 +352,16 @@ au BufNewFile,BufRead *.cpp,*.h,*.c call ReadCppTags()
 " => omnicppcomplete 设置 2011-6-4 1:29:01
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if !g:install_ycm
-	set completeopt=menu,menuone
-	let OmniCpp_MayCompleteDot = 1 " autocomplete with .
-	let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
-	let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
-	let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
-	let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
-	let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype  in popup window
-	let OmniCpp_GlobalScopeSearch=1
-	let OmniCpp_DisplayMode=1
-	let OmniCpp_DefaultNamespaces=["std"]
+    set completeopt=menu,menuone
+    let OmniCpp_MayCompleteDot = 1 " autocomplete with .
+    let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
+    let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
+    let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
+    let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
+    let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype  in popup window
+    let OmniCpp_GlobalScopeSearch=1
+    let OmniCpp_DisplayMode=1
+    let OmniCpp_DefaultNamespaces=["std"]
     set nocp	"关闭vi兼容模式
 endif
 
@@ -370,79 +370,79 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if !g:install_ycm
 
-	let g:neoComplcache_disableautocomplete=1
-	" Disable AutoComplPop. 
-	let g:acp_enableAtStartup = 0 
-	" Use neocomplcache. 
-	let g:neocomplcache_enable_at_startup = 1 
-	" Use smartcase. 
-	let g:neocomplcache_enable_smart_case = 1 
-	" Use camel case completion. 
-	"let g:neocomplcache_enable_camel_case_completion = 1 
-	" Use underbar completion. 
-	"let g:neocomplcache_enable_underbar_completion = 1 
-	" Set minimum syntax keyword length. 
-	let g:neocomplcache_min_syntax_length = 3 
-	let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*' 
+    let g:neoComplcache_disableautocomplete=1
+    " Disable AutoComplPop. 
+    let g:acp_enableAtStartup = 0 
+    " Use neocomplcache. 
+    let g:neocomplcache_enable_at_startup = 1 
+    " Use smartcase. 
+    let g:neocomplcache_enable_smart_case = 1 
+    " Use camel case completion. 
+    "let g:neocomplcache_enable_camel_case_completion = 1 
+    " Use underbar completion. 
+    "let g:neocomplcache_enable_underbar_completion = 1 
+    " Set minimum syntax keyword length. 
+    let g:neocomplcache_min_syntax_length = 3 
+    let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*' 
 
-	" Define dictionary. 
-	let g:neocomplcache_dictionary_filetype_lists = { 
-	    \ 'default' : '', 
-	    \ 'vimshell' : $HOME.'/.vimshell_hist', 
-	    \ 'scheme' : $HOME.'/.gosh_completions' 
-	    \ } 
+    " Define dictionary. 
+    let g:neocomplcache_dictionary_filetype_lists = { 
+                \ 'default' : '', 
+                \ 'vimshell' : $HOME.'/.vimshell_hist', 
+                \ 'scheme' : $HOME.'/.gosh_completions' 
+                \ } 
 
-	" Define keyword. 
-	if !exists('g:neocomplcache_keyword_patterns') 
-	    let g:neocomplcache_keyword_patterns = {} 
-	endif 
-	let g:neocomplcache_keyword_patterns['default'] = '\h\w*' 
+    " Define keyword. 
+    if !exists('g:neocomplcache_keyword_patterns') 
+        let g:neocomplcache_keyword_patterns = {} 
+    endif 
+    let g:neocomplcache_keyword_patterns['default'] = '\h\w*' 
 
-	" Plugin key-mappings. 
-	imap <C-k>     <Plug>(neocomplcache_snippets_expand) 
-	smap <C-k>     <Plug>(neocomplcache_snippets_expand) 
-	inoremap <expr><C-g>     neocomplcache#undo_completion() 
-	inoremap <expr><C-l>     neocomplcache#complete_common_string() 
+    " Plugin key-mappings. 
+    imap <C-k>     <Plug>(neocomplcache_snippets_expand) 
+    smap <C-k>     <Plug>(neocomplcache_snippets_expand) 
+    inoremap <expr><C-g>     neocomplcache#undo_completion() 
+    inoremap <expr><C-l>     neocomplcache#complete_common_string() 
 
-	" SuperTab like snippets behavior. 
-	"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>" 
+    " SuperTab like snippets behavior. 
+    "imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>" 
 
-	" Recommended key-mappings. 
-	" <CR>: close popup and save indent. 
-	inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>" 
-	" <TAB>: completion. 
-	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>" 
-	" <C-h>, <BS>: close popup and delete backword char. 
-	inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>" 
-	inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>" 
-	inoremap <expr><C-y>  neocomplcache#close_popup() 
-	inoremap <expr><C-e>  neocomplcache#cancel_popup() 
+    " Recommended key-mappings. 
+    " <CR>: close popup and save indent. 
+    inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>" 
+    " <TAB>: completion. 
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>" 
+    " <C-h>, <BS>: close popup and delete backword char. 
+    inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>" 
+    inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>" 
+    inoremap <expr><C-y>  neocomplcache#close_popup() 
+    inoremap <expr><C-e>  neocomplcache#cancel_popup() 
 
-	" AutoComplPop like behavior. 
-	"let g:neocomplcache_enable_auto_select = 1 
+    " AutoComplPop like behavior. 
+    "let g:neocomplcache_enable_auto_select = 1 
 
-	" Shell like behavior(not recommended). 
-	"set completeopt+=longest 
-	set completeopt-=preview
-	"let g:neocomplcache_enable_auto_select = 1 
-	"let g:neocomplcache_disable_auto_complete = 1 
-	"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<TAB>" 
-	"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>" 
+    " Shell like behavior(not recommended). 
+    "set completeopt+=longest 
+    set completeopt-=preview
+    "let g:neocomplcache_enable_auto_select = 1 
+    "let g:neocomplcache_disable_auto_complete = 1 
+    "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<TAB>" 
+    "inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>" 
 
-	" Enable omni completion. 
-	autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS 
-	autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags 
-	autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS 
-	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete 
-	autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags 
+    " Enable omni completion. 
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS 
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags 
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS 
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete 
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags 
 
-	" Enable heavy omni completion. 
-	if !exists('g:neocomplcache_omni_patterns') 
-	let g:neocomplcache_omni_patterns = {} 
-	endif 
-	let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::' 
-	"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete 
-	let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+    " Enable heavy omni completion. 
+    if !exists('g:neocomplcache_omni_patterns') 
+        let g:neocomplcache_omni_patterns = {} 
+    endif 
+    let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::' 
+    "autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete 
+    let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -467,3 +467,30 @@ autocmd FileType python setlocal foldmethod=indent
 " Pydiction 插件的字典配置
 let g:pydiction_location = g:vim_home.'/bundle/Pydiction/complete-dict'
 "let g:pydiction_menu_height = 20
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 新建.java,.sh, 定义函数SetTitle，自动插入文件头
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufNewFile *.sh,*.java exec ":call SetTitle()" 
+"
+func SetTitle() 
+    "如果文件类型为.sh文件 
+    if &filetype == 'sh' 
+        call setline(1, "/#!/bin/bash") 
+        call append(line("."), "/#########################################################################") 
+        call append(line(".")+1, "/# Author: neofung(http://blog.csdn.net/neofung)") 
+        call append(line(".")+2, "/# Created Time: ".strftime("%c")) 
+        call append(line(".")+3, "/# File Name: ".expand("%")) 
+        call append(line(".")+4, "/# Description: ") 
+        call append(line(".")+5, "/#########################################################################") 
+        call append(line(".")+6, "") 
+    else 
+        call setline(1, "/*************************************************************************") 
+        call append(line("."), " Author: neofung(http://blog.csdn.net/neofung)") 
+        call append(line(".")+1, " Created Time: ".strftime("%c")) 
+        call append(line(".")+2, " File Name: ".expand("%")) 
+        call append(line(".")+3, " Description: ") 
+        call append(line(".")+4, " ************************************************************************/") 
+        call append(line(".")+5, "") 
+    endif 
+endfunc 
