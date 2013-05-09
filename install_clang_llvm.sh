@@ -2,8 +2,8 @@
 
 sudo apt-get install build-essential cmake python-dev
 
-mkdir temp
-cd ./temp
+mkdir ~/temp
+cd ~/temp
 
 svn co http://llvm.org/svn/llvm-project/llvm/trunk llvm
 cd llvm/tools
@@ -14,6 +14,7 @@ svn co http://llvm.org/svn/llvm-project/compiler-rt/trunk compiler-rt
 cd ../..
 mkdir llvm-build
 cd llvm-build
-../llvm/configure
+../llvm/configure --enable-optimized
 make
+sudo make install
 
