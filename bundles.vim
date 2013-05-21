@@ -49,7 +49,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'nathanaelkane/vim-indent-guides'
 "在输入()，""等需要配对的符号时，自动帮你补全剩余半个
-Bundle 'AutoClose'
+"Bundle 'AutoClose'
 "显示行末的空格；
 Bundle 'ShowTrailingWhitespace'
 
