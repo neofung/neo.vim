@@ -273,9 +273,15 @@ You can select use YouCompleteMe for code-completion, And YCM requires Clang. Fo
 
         ./install_vim.sh
 
-7. Go to ~/.vim/, and install the Clang+LLVM, and complete the YouCompleteMe installation.
+7. Go to ~/.vim/, and install the Clang+LLVM.
 
-        ./complete_CYM_installation.sh
+        ./install_clang_llvm.sh
+
+8. Compiling YCM with semantic support for C-family languages:
+
+        cd ~/.vim/bundle/YouCompleteMe
+        ./install.sh --clang-completer
+
 
 That's it!
 
