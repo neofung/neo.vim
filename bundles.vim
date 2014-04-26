@@ -17,10 +17,9 @@ Bundle 'gmarik/vundle'
 " Code Completions
 "------------------
 Bundle 'honza/vim-snippets'
-Bundle 'mattn/zencoding-vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'mattn/emmet-vim'
 Bundle 'Raimondi/delimitMate'
-Bundle 'rbonvall/snipmate-snippets-bib'
-Bundle 'zedr/zope-snipmate-bundle'
 
 if g:install_ycm
     Bundle 'Valloric/YouCompleteMe'
@@ -37,7 +36,7 @@ Bundle 'tomtom/tlib_vim'
 "-----------------
 " Fast navigation
 "-----------------
-Bundle 'tsaleh/vim-matchit'
+Bundle 'edsono/vim-matchit'
 Bundle 'Lokaltog/vim-easymotion'
 
 "--------------
@@ -48,9 +47,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'sjl/gundo.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'nathanaelkane/vim-indent-guides'
-"在输入()，""等需要配对的符号时，自动帮你补全剩余半个
 "Bundle 'AutoClose'
-"显示行末的空格；
 Bundle 'ShowTrailingWhitespace'
 
 "--------------
@@ -65,7 +62,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'mbbill/echofunc'
 
 "-------------
 " Other Utils
@@ -135,3 +131,4 @@ Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'fisadev/fisa-vim-colorscheme'
 
 filetype plugin indent on     " required!
+
