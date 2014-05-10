@@ -122,13 +122,13 @@ Bundle 'vim-scripts/LaTeX-Suite-aka-Vim-LaTeX'
 "--------------
 " Color Schemes
 "--------------
-Bundle 'rickharris/vim-blackboard'
+"Bundle 'rickharris/vim-blackboard'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'rickharris/vim-monokai'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'Lokaltog/vim-distinguished'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'fisadev/fisa-vim-colorscheme'
+"Bundle 'rickharris/vim-monokai'
+"Bundle 'tpope/vim-vividchalk'
+"Bundle 'Lokaltog/vim-distinguished'
+"Bundle 'chriskempson/vim-tomorrow-theme'
+"Bundle 'fisadev/fisa-vim-colorscheme'
 
 filetype plugin indent on     " required!
 
