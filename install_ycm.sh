@@ -15,7 +15,7 @@ mkdir ycm_build
 cd ycm_build
 make clean
 cmake -G "Unix Makefiles" \
-    -DPATH_TO_LLVM_ROOT=/usr/local \
+    -DUSE_SYSTEM_LIBCLANG=ON \
     . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 make ycm_core
 make ycm_support_libs

@@ -19,6 +19,12 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Install YouCompleteMe or not
 let g:install_ycm=1
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_log_level = 'debug'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_confirm_extra_conf = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 设置VIM的配置目录 2013-4-27 10:23:54
