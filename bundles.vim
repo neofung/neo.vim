@@ -117,7 +117,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 
 "------- LaTeX ----
 "A rich set of tools for editing LaTeX
-Bundle 'vim-scripts/LaTeX-Suite-aka-Vim-LaTeX'
+"Bundle 'vim-scripts/LaTeX-Suite-aka-Vim-LaTeX'
 
 "--------------
 " Color Schemes
