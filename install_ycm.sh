@@ -8,6 +8,9 @@
 
 sudo apt-get install build-essential cmake python-dev
 
+cd ~/.vim/bundle/YouCompleteMe
+git submodule update --init --recursive
+
 mkdir ~/temp
 cd ~/temp
 
