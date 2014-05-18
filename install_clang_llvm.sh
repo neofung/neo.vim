@@ -14,7 +14,7 @@ svn co http://llvm.org/svn/llvm-project/compiler-rt/trunk compiler-rt
 cd ../..
 mkdir llvm-build
 cd llvm-build
-../llvm/configure --enable-optimized
-make
+../llvm/configure --enable-optimized --enable-targets=host-only
+make -j4 
 sudo make install
 
