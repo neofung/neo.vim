@@ -117,23 +117,23 @@ let g:html_indent_style1 = "inc"
 "-----------------
 " Rainbow parentheses for Lisp and variants
 let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
+            \ ['brown',       'RoyalBlue3'],
+            \ ['Darkblue',    'SeaGreen3'],
+            \ ['darkgray',    'DarkOrchid3'],
+            \ ['darkgreen',   'firebrick3'],
+            \ ['darkcyan',    'RoyalBlue3'],
+            \ ['darkred',     'SeaGreen3'],
+            \ ['darkmagenta', 'DarkOrchid3'],
+            \ ['brown',       'firebrick3'],
+            \ ['gray',        'RoyalBlue3'],
+            \ ['black',       'SeaGreen3'],
+            \ ['darkmagenta', 'DarkOrchid3'],
+            \ ['Darkblue',    'firebrick3'],
+            \ ['darkgreen',   'RoyalBlue3'],
+            \ ['darkcyan',    'SeaGreen3'],
+            \ ['darkred',     'DarkOrchid3'],
+            \ ['red',         'firebrick3'],
+            \ ]
 let g:rbpt_max = 16
 autocmd Syntax lisp,scheme,clojure,racket RainbowParenthesesToggle
 
@@ -157,27 +157,27 @@ let g:tagbar_sort = 0
 let g:tagbar_compact = 1
 " tag for coffee
 if executable('coffeetags')
-  let g:tagbar_type_coffee = {
-        \ 'ctagsbin' : 'coffeetags',
-        \ 'ctagsargs' : '',
-        \ 'kinds' : [
-        \ 'f:functions',
-        \ 'o:object',
-        \ ],
-        \ 'sro' : ".",
-        \ 'kind2scope' : {
-        \ 'f' : 'object',
-        \ 'o' : 'object',
-        \ }
-        \ }
+    let g:tagbar_type_coffee = {
+                \ 'ctagsbin' : 'coffeetags',
+                \ 'ctagsargs' : '',
+                \ 'kinds' : [
+                \ 'f:functions',
+                \ 'o:object',
+                \ ],
+                \ 'sro' : ".",
+                \ 'kind2scope' : {
+                \ 'f' : 'object',
+                \ 'o' : 'object',
+                \ }
+                \ }
 
-  let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'sort' : 0,
-    \ 'kinds' : [
-        \ 'h:sections'
-    \ ]
-    \ }
+    let g:tagbar_type_markdown = {
+                \ 'ctagstype' : 'markdown',
+                \ 'sort' : 0,
+                \ 'kinds' : [
+                \ 'h:sections'
+                \ ]
+                \ }
 endif
 
 " Nerd Tree
@@ -222,7 +222,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType c setlocal omnifunc=ccomplete#Complete
 if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
+    let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.erlang = '[a-zA-Z]\|:'
 
@@ -257,11 +257,11 @@ nnoremap <c-l> <c-w>l
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
-      \ if ! exists("g:leave_my_cursor_position_alone") |
-      \     if line("'\"") > 0 && line ("'\"") <= line("$") |
-      \         exe "normal g'\"" |
-      \     endif |
-      \ endif
+            \ if ! exists("g:leave_my_cursor_position_alone") |
+            \     if line("'\"") > 0 && line ("'\"") <= line("$") |
+            \         exe "normal g'\"" |
+            \     endif |
+            \ endif
 
 " w!! to sudo & write a file
 cmap w!! %!sudo tee >/dev/null %
@@ -350,22 +350,27 @@ nmap <leader>w :w!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => ctags自动更新 2011-9-22
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function UpdateTags()
-    let _f_ = expand("%:p")
-    let _cmd_ = '"ctags -R --c++-kinds=+p --fields=+iaS --extra=+q " '
-    let _resp = system(_cmd_)
-    unlet _cmd_
-    unlet _f_
-    unlet _resp
-    set tags+=tags
-    set autochdir
+function! UpdateCtags()
+    let curdir=getcwd()
+    while !filereadable("./tags")
+        cd ..
+        if getcwd() == "/"
+            break
+        endif
+    endwhile
+    if filewritable("./tags")
+        !ctags -R --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q
+        "TlistUpdate
+    endif
+    execute ":cd " . curdir
 endfunction
-au BufWritePost *.cpp,*.h,*.c,*.rl,*.def,*.cc call system("ctags -R --c++-kinds=+p --fields=+iaS --extra=+q " . expand("%:p"))
+
+autocmd BufWritePost *.cpp,*.h,*.c,*.rl,*.def,*.cc call UpdateCtags()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Exuberant Ctags 设置 2011-6-3 15:50:30
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set tags+=tags
+set tags+=tags;
 
 function ReadCppTags()
     if filereadable(g:vim_home."/tags/cpp_src.tags")
@@ -426,7 +431,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType c setlocal omnifunc=ccomplete#Complete
 if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
+    let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.erlang = '[a-zA-Z]\|:'
 

@@ -105,7 +105,7 @@ flags = [
 #
 # Most projects will NOT need to set this to anything; you can just change the
 # 'flags' list of compilation flags. Notice that YCM itself uses that approach.
-compilation_database_folder = ''
+compilation_database_folder = 'build'
 
 if os.path.exists( compilation_database_folder ):
   database = ycm_core.CompilationDatabase( compilation_database_folder )
@@ -185,12 +185,13 @@ def FlagsForFile( filename, **kwargs ):
     # NOTE: This is just for YouCompleteMe; it's highly likely that your project
     # does NOT need to remove the stdlib flag. DO NOT USE THIS IN YOUR
     # ycm_extra_conf IF YOU'RE NOT 100% SURE YOU NEED IT.
-    try:
-      final_flags.remove( '-stdlib=libc++' )
-    except ValueError:
-      pass
+    #try:
+    #  final_flags.remove( '-stdlib=libc++' )
+    #except ValueError:
+    #  pass
   else:
-    relative_to = DirectoryOfThisScript()
+    # relative_to = DirectoryOfThisScript()
+    relative_to = '/usr/local/include'
     final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
 
   return {
