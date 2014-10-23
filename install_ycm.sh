@@ -6,7 +6,7 @@
 # Description: 
 #########################################################################
 
-sudo apt-get install build-essential cmake python-dev
+sudo apt-get install build-essential cmake python-dev python-devel
 
 cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
