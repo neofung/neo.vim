@@ -6,7 +6,8 @@
 # Description: 
 #########################################################################
 
-sudo apt-get install build-essential cmake python-dev python-devel
+sudo apt-get install build-essential cmake \
+    python-dev python-devel libclang-dev
 
 cd ~/.vim/bundle/YouCompleteMe
 git submodule update --init --recursive
