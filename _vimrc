@@ -42,6 +42,8 @@ execute "source ".g:vim_home."/bundles.vim"
 
 " encoding dectection
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set termencoding=utf-8
+set encoding=prc
 
 " enable filetype dectection and ft specific plugin/indent
 filetype plugin indent on
