@@ -6,7 +6,7 @@
 # Description: 
 #########################################################################
 
-sudo apt-get install build-essential cmake \
+sudo apt-get install -y build-essential cmake \
     python-dev libclang-dev
 
 cd ~/.vim/bundle/YouCompleteMe
