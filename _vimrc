@@ -15,7 +15,7 @@ else
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Completer设置 
+" => Completer设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Install YouCompleteMe or not
 let g:install_ycm=1
@@ -38,11 +38,11 @@ endif
 " => 读取bundles 2013-4-27 10:25:03
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "用.号进行字符串连接，用execute来运行连接后的命令
-execute "source ".g:vim_home."/bundles.vim" 
+execute "source ".g:vim_home."/bundles.vim"
 
 " encoding dectection
-"set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
-"set termencoding=utf-8
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set termencoding=utf-8
 "set encoding=prc
 
 " enable filetype dectection and ft specific plugin/indent
@@ -316,14 +316,6 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Get out of VI's compatible mode..
-
-set nocompatible
-
-
-"Sets how many lines of history VIM har to remember
-set history=400
-
 "Enable filetype plugin
 filetype on
 if has("eval") && v:version>=600
