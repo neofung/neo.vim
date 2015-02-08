@@ -17,7 +17,7 @@ cd ~/temp
 
 mkdir ycm_build
 cd ycm_build
-make clean
+#make clean
 cmake -G "Unix Makefiles" \
     -DUSE_SYSTEM_LIBCLANG=ON \
     . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
