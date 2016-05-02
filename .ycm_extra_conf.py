@@ -95,7 +95,13 @@ flags = [
 '-isystem',
 '/usr/include/c++/',
 '-isystem',
-'/usr/include/i386-linux-gnu/c++'
+'/usr/include/i386-linux-gnu/c++',
+'-isystem',
+'/usr/include/clang/3.5.0/include',
+'-isystem',
+'/usr/local/include',
+'-isystem',
+'/usr/lib/gcc/x86_64-linux-gnu/4.9/include',
 ]
 
 

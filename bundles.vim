@@ -21,9 +21,7 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'mattn/emmet-vim'
 Bundle 'Raimondi/delimitMate'
 
-if g:install_ycm
-    Bundle 'Valloric/YouCompleteMe'
-else
+if !g:install_ycm
     Bundle 'ervandew/supertab'
     Bundle 'Shougo/neocomplcache'
     Bundle 'vim-scripts/OmniCppComplete'
