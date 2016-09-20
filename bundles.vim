@@ -97,7 +97,7 @@ Bundle 'tpope/vim-markdown'
 " Bundle 'tpope/vim-endwise'
 
 "------- Go ----------
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
 
 "------- C/C++ -------
 Bundle 'vim-scripts/c.vim'
