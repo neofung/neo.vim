@@ -2,6 +2,7 @@
 " => 操作系统判定函数 2013-4-27 10:23:16
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:is_unix=1
+let g:go_version_warning = 0
 if has("win32") || has("win64")
     let	g:is_unix=0
 endif

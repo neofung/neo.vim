@@ -17,7 +17,7 @@ Bundle 'gmarik/vundle'
 " Code Completions
 "------------------
 Bundle 'honza/vim-snippets'
-Bundle 'garbas/vim-snipmate'
+" Bundle 'garbas/vim-snipmate'
 Bundle 'mattn/emmet-vim'
 Bundle 'Raimondi/delimitMate'
 
